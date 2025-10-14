@@ -1,38 +1,1333 @@
+/************ Custom Font ************/
+@font-face {
+  font-family: "Centra";
+  src: url("./assets/font/CentraNo2-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Centra";
+  src: url("./assets/font/CentraNo2-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Centra";
+  src: url("./assets/font/CentraNo2-Book.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+/************ Default Css ************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 75px;
+}
+
 .App {
-  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+canvas {
+  display: block;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+body {
+  font-weight: 400;
+  overflow-x: hidden;
+  position: relative;
+  background-color: #121212 !important;
+  color: #fff !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Centra', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+}
+
+p, a, li, button, ul {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+}
+
+.footer-brand-text {
+  font-weight: 600;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.footer-brand-white {
+  color: #fff; /* белый для фамилии */
+}
+
+.footer-brand-accent {
+  color: #AA367C; 
+}
+
+p.success {
+	color: green;
+}
+
+
+/************ Navbar Css ************/
+nav.navbar {
+  padding: 18px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 9999;
+  transition:  0.32s ease-in-out;
+}
+
+nav.navbar a.navbar-brand {
+    width: 6%;
+    height: 10%;
+}
+nav.navbar .navbar-nav .nav-link.navbar-link {
+  font-weight: 400;
+  color: #fff !important;
+  letter-spacing: 0.8px;
+  padding: 0 25px;
+  font-size: 18px;
+  opacity: 0.75;
+}
+nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
+nav.navbar .navbar-nav a.nav-link.navbar-link.active {
+    opacity: 1;
+}
+span.navbar-text {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-text button {
+  font-weight: 700;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 18px 34px;
+  font-size: 18px;
+  margin-left: 18px;
+	position: relative;
+	background-color: transparent;
+	transition: 0.3s ease-in-out;
+}
+.navbar-text button span {
+  z-index: 1;
+}
+.navbar-text button::before {
+  content: "";
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  background-color: #fff;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  transition: 0.3s ease-in-out;
+}
+.navbar-text button:hover {
+  color: #121212;
+}
+.navbar-text button:hover::before {
+	content: "";
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+nav.navbar .navbar-toggler:active,
+nav.navbar .navbar-toggler:focus {
+	outline: none;
+    box-shadow: none;
+}
+nav.navbar .navbar-toggler-icon {
+  width: 24px;
+  height: 17px;
+  background-image: none;
+  position: relative;
+  border-bottom: 2px solid #fff;
+  transition: all 300ms linear;
+  top: -2px;
+}
+nav.navbar .navbar-toggler-icon:focus {
+	border-bottom: 2px solid #fff;
+}
+nav.navbar .navbar-toggler-icon:after,
+nav.navbar .navbar-toggler-icon:before {
+	width: 24px;
+	position: absolute;
+	height: 2px;
+	background-color: #fff;
+	top: 0;
+	left: 0;
+	content: '';
+	z-index: 2;
+	transition: all 300ms linear;
+}
+nav.navbar .navbar-toggler-icon:after {
+	top: 8px;
+}
+nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+	transform: rotate(45deg);
+	background-color: #fff;
+	height: 2px;
+}
+nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
+	transform: translateY(8px) rotate(-45deg);
+	background-color: #fff;
+	height: 2px;
+}
+nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+	border-color: transparent;
+}
+
+
+/* ===  Прозрачный навбар, фон появляется при скролле === */
+.navbar-scroll {
+  background: transparent;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: none;
+  padding: 10px 0;
+  z-index: 1000;
+}
+
+.navbar-scroll.scrolled {
+  background: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+}
+
+.navbar-scroll .nav-link,
+.navbar-scroll .navbar-brand,
+.navbar-scroll .dropdown-toggle {
+  color: #fff !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-scroll .nav-link:hover {
+  color: #AA367C  !important;
+}
+
+
+/* Navbar кастомные стили */
+.custom-navbar {
+  background: linear-gradient(90deg, #0a0a2e, #000);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+/* Анимация появления подменю */
+.dropdown-menu-custom {
+  background: linear-gradient(135deg, #0a0a2e, #1f1f4e);
+  border: none;
+  border-radius: 12px;
+  padding: 0.5rem 0;
+  min-width: 200px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateY(-15px);
+  pointer-events: none;  
+}
+
+/* Когда подменю открыто */
+.show > .dropdown-menu-custom {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Элементы подменю */
+.dropdown-item-custom {
+  color: #f0f0f0;
+  padding: 12px 24px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.dropdown-item-custom:hover,
+.dropdown-item-custom:focus {
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 3px solid #AA367C ;
+
+}
+
+.custom-dropdown .dropdown-item:hover {
+  background: rgba(170, 54, 124, 0.3); 
+  color: #AA367C !important;           
+  transform: scale(1.05);              
+}
+
+
+/* Logo */
+.brand-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.brand-white {
+  color: #fff;
+}
+
+.brand-accent {
+  color: #AA367C;
+}
+
+
+/************ Banner Css ************/
+.banner {
+  margin-top: 0;
+  padding: 260px 0 100px 0;
+  background-image: url('./assets/img/backg2.png');
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.banner .tagline {
+  font-weight: 700;
+  letter-spacing: 0.9px;
+  padding: 8px 10px;
+  background: linear-gradient(90.21deg, rgba(170, 54, 124, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: 20px;
+  margin-bottom: 52px;
+  display: inline-block;
+}
+.banner h1 {
+  font-size: 50px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  display: block;
+}
+.banner p {
+  color: #B8B8B8;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  line-height: 1.5em;
+  width: 96%;
+}
+.banner button {
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 60px;
+  letter-spacing: 0.8px;
+  display: flex;
+  align-items: center;
+}
+.banner button svg {
+  font-size: 25px;
+  margin-left: 10px;
+  transition: 0.3s ease-in-out;
+  line-height: 1;
+}
+.banner button:hover svg {
+  margin-left: 25px;
+}
+.banner img {
+  animation: updown 9s linear infinite;
+}
+@keyframes updown {
+    0% {
+        transform: translateY(-20px);
+    }
+    50% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(-20px);
+    }
+}
+.txt-rotate > .wrap {
+  border-right: 0.08em solid #666;
+}
+.txt-rotate {
+  display: inline-block;
+  min-width: 220px;  /* ширина под "Frontend Developer" */
+  text-align: left;
+}
+
+.wrap {
+  border-right: 2px solid #666; 
+  padding-right: 5px;
+  white-space: nowrap; 
+}
+
+/* Social icons */
+
+.social-icons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.social-link {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #24123a; 
+  color: #fff;
+  transition: all 0.3s ease;
+  text-decoration: none;
+    margin-top: 25px;
+}
+
+.social-link:hover {
+   background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%); 
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.cv-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+ background: linear-gradient(90.21deg, rgba(170, 54, 124, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-top: 30px;
+}
+
+.cv-btn:hover {
+  background: #7A275D; 
+  transform: translateY(-2px);
+}
+
+/* Avatar banner */
+.avatar-img {
+  border-radius: 50%;
+  padding: 15px;
+  background: radial-gradient(circle at center, #6c63ff, #9b59b6, rgba(0,0,0,0));
+  box-shadow: 0 0 25px rgba(108, 99, 255, 0.6),
+              0 0 50px rgba(155, 89, 182, 0.5);
+  max-width: 900px; 
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: pulseGlow 2.5s infinite alternate;
+}
+
+.avatar-img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 40px rgba(108, 99, 255, 0.9),
+              0 0 70px rgba(155, 89, 182, 0.8);
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 20px rgba(108, 99, 255, 0.5),
+                0 0 40px rgba(155, 89, 182, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(108, 99, 255, 0.7),
+                0 0 60px rgba(155, 89, 182, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(108, 99, 255, 0.6),
+                0 0 50px rgba(155, 89, 182, 0.5);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* * Skills */ 
+
+.skill {
+  padding-bottom: 90px; 
+  position: relative;
+  overflow-x: hidden; 
+}
+
+.skill-bx {
+  background: #151515;
+  border-radius: 64px;
+  text-align: center;
+  padding: 60px 50px;
+  margin-top: 90px;
+}
+
+.skill p {
+  margin: 24px 0 20px 0;
+  line-height: 1.5;
+}
+
+.background-image-left {
+  top: auto;
+  bottom: 0;
+  width: 90%;
+  position: absolute;
+  z-index: -4;
+}
+/* 
+/* Cтиль для карточек и анимации */
+.skill-slider .item {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  padding: 60px;
+  border-radius: 20px;
+} 
+
+
+.skill-slider .item img {
+  transition: transform 0.4s ease, filter 0.4s ease;
+  width: 40%;
+  margin: 0 auto 20px auto;
+}
+
+.skill-slider .item img:hover {
+  transform: scale(1.15) rotate(3deg);
+  filter: drop-shadow(0 0 15px rgba(170, 54, 124, 0.7));
+}
+
+.skill-slider .item h5 {
+  transition: color 0.3s ease;
+}
+
+.skill-slider .item:hover h5 {
+  color: #7031a2;
+}
+
+/* --- Background Image в skills --- */
+.background-image-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+/*  Kарточки сертификатов */
+.certificates-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-top: 50px;
+  justify-content: center;
+}
+
+.certificate-card {
+  background: linear-gradient(145deg, #4e1b5c, #371844); 
+  color: #fff;
+  border-radius: 15px;
+  padding: 15px;
+  width: 300px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.4s, box-shadow 0.4s, background 0.4s;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.certificate-card img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: transform 0.3s;
+}
+
+
+.certificate-card:hover {
+  transform: scale(1.08) rotateX(5deg);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(145deg, #5a2380, #4e1b5c);
+}
+
+.certificate-card:hover img {
+  transform: scale(1.4);
+}
+
+
+/* Модальное окно */
+.certificate-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+ background: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20%;
+  right: 30%;
+  font-size: 2rem;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.modal-img {
+  max-width: 50%;
+  max-height: 50%;
+  object-fit: contain;
+}
+
+.modal-prev, .modal-next {
+  position: absolute;
+  top: 50%;
+  font-size: 3rem;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+.modal-prev { left: 30%; }
+.modal-next { right: 30%; }
+
+/* Скрытие остального сайта при открытом модальном окне */
+.site-hidden {
+  display: none;
+}
+
+
+/* --- Projects Section --- */
+.projects {
+  position: relative;
+  background: #121212;
+  color: #fff;
+  overflow: hidden;
+}
+
+.projects-bx {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.3);
+
+}
+
+.projects h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+    margin-top: 60px;
+}
+
+.projects p {
+  color: #b8b8b8;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+/* --- Project Cards --- */
+.project-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+.project-card img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.04);
+}
+
+.project-card .content {
+  padding: 20px;
+  text-align: left;
+}
+
+.project-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  font-size: 14px;
+  color: #b8b8b8;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.project-tags span {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  font-size: 12px;
+  padding: 4px 10px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+/* --- Links (GitHub / Netlify) --- */
+.project-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.project-links a {
+  color: #b8b8b8;
+  transition: color 0.3s ease;
+}
+
+.project-links a:hover {
+  color: #8f549f;
+}
+
+/* --- Стили для тегов в Projects --- */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.project-tags span {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+ .project-tags span:hover 
+{ background: linear-gradient(90deg, #aa367c, #4a2fbd); 
+  border-color: transparent; /* transform: scale(1.1); */ 
+  color: #fff;
+   box-shadow: 0px 4px 12px rgba(170, 54, 124, 0.6); }
+
+
+/* --- See more/less button --- */
+.cosmic-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #aa367c, #4a2fbd);
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+.cosmic-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 8px 25px rgba(37, 117, 252, 0.5);
+}
+
+/* Loader...... */
+
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #0a0a2e, #000);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  z-index: 9999;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+.cosmic-orb {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  animation: rotate 4s linear infinite;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.cosmic-orb span {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #ff00ff, #00ffff);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.cosmic-orb span:nth-child(1) {
+  top: 0;
+  left: 40px;
+}
+.cosmic-orb span:nth-child(2) {
+  bottom: 0;
+  left: 0;
+}
+.cosmic-orb span:nth-child(3) {
+  bottom: 0;
+  right: 0;
+}
+
+.loader-text {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #fff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(0.8); opacity: 0.7; }
+  50% { transform: scale(1.3); opacity: 1; }
+}
+
+@keyframes glow {
+  0% { text-shadow: 0 0 5px #ff00ff, 0 0 10px #00ffff; }
+  100% { text-shadow: 0 0 20px #00ffff, 0 0 40px #ff00ff; }
+}
+
+/************ Contact Css ************/
+.contact {
+  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  padding: 60px 0 200px 0;
+}
+.contact img {
+  width: 92%;
+}
+.contact h2 {
+	font-size: 45px;
+	font-weight: 700;
+  margin-bottom: 30px;
+}
+.contact form input, .contact form textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  color: #fff;
+  margin: 0 0 8px 0;
+  padding: 18px 26px;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  transition: 0.3s ease-in-out;
+}
+.contact form input:focus, .contact form textarea:focus {
+  background: rgba(255, 255, 255, 1);
+  color: #121212;
+}
+.contact form input::placeholder, .contact form textarea::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+}
+.contact form input:focus::placeholder, .contact form textarea:focus::placeholder {
+  color: #121212;
+  opacity: 0.8;
+}
+.contact form button {
+  font-weight: 700;
+  color: #000;
+  background-color: #fff;
+  padding: 14px 48px;
+  font-size: 18px;
+  margin-top: 25px;
+  border-radius: 0;
+  position: relative;
+  transition: 0.3s ease-in-out;
+}
+.contact form button span {
+  z-index: 1;
+  position: relative;
+}
+.contact form button:hover {
+  color: #fff;
+}
+.contact form button::before {
+  content: "";
+  background: #121212;
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  transition: 0.3s ease-in-out;
+}
+.contact form button:hover::before {
+  width: 100%;
+}
+
+/* Message form */
+
+.status-message {
+  margin-top: 15px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.status-message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.status-message.danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/************ Footer Css ************/
+.footer {
+  padding: 0 0 50px 0;
+  background-image: url('./assets/img/footer-bg.png');
+  background-position: center ;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.footer img {
+  width: 26%;
+}
+.footer p {
+  font-weight: 400;
+  font-size: 14px;
+  color: #B8B8B8;
+  letter-spacing: 0.5px;
+  margin-top: 20px;
+}
+
+/* 🔹 Соцсети */
+.footer-social-icons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.footer-social-icons a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: #000; 
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-size: 20px;
+}
+
+.footer-social-icons a:hover {
+  background: linear-gradient(135deg, #AA367C, #4A2FBD);
+  transform: scale(1.1);
+  color: #fff;
+}
+
+/* === Magical CSS bubbles (без canvas) === */
+.bubbles-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;           
+  pointer-events: none;    
+  overflow: hidden;
+  transform: translate(var(--mx, 0), var(--my, 0));
+  transition: transform .12s ease-out;
+  mix-blend-mode: screen;  
+}
+
+.bubbles-bg span {
+  position: absolute;
+  left: var(--left);
+  bottom: -12%;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  /* «мыльность» */
+  background:
+    radial-gradient(circle at 30% 30%,
+      hsla(var(--hue), 95%, 85%, .95),
+      hsla(var(--hue), 85%, 60%, .55) 40%,
+      hsla(var(--hue), 90%, 55%, .18) 65%,
+      transparent 72%);
+  box-shadow:
+    0 0 18px hsla(var(--hue), 100%, 70%, .45),
+    inset 0 0 10px hsla(var(--hue), 100%, 95%, .55);
+  filter: blur(.2px);
+  animation: bubble-rise var(--duration) linear infinite;
+  animation-delay: var(--delay);
+  will-change: transform, opacity;
+}
+
+/* эффект «жидкого глянца» */
+.bubbles-bg span::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 65% 35%, rgba(255,255,255,.6), transparent 35%),
+    radial-gradient(circle at 35% 70%, rgba(255,255,255,.25), transparent 40%);
+  mix-blend-mode: screen;
+}
+
+/* Всплытие + лёгкая дрейфовая траектория */
+@keyframes bubble-rise {
+  0% {
+    transform:
+      translate3d(calc(-10px * var(--depth)), 0, 0)
+      scale(1);
+    opacity: 0;
   }
-  to {
-    transform: rotate(360deg);
+  10% { opacity: .9; }
+  60% {
+    transform:
+      translate3d(
+        calc(20px * var(--depth)),
+        calc(-60vh * (0.8 + var(--depth))),
+        0
+      )
+      scale(1.03);
+    opacity: .95;
+  }
+  100% {
+    transform:
+      translate3d(
+        calc(-10px * var(--depth)),
+        calc(-120vh * (0.8 + var(--depth))),
+        0
+      )
+      scale(1.05);
+    opacity: 0;
+  }
+}
+
+
+/* Адаптация */
+@media (min-width:1700px) {
+	main .container {
+		max-width: 100%;
+		padding: 0 150px;
+	}
+}
+
+/* 📱 Планшеты */
+@media (max-width: 991px) {
+  .banner {
+  padding: 120px 0 40px 0;
+  text-align: left;
+}
+
+.banner h1 {
+  font-size: 36px;
+}
+
+.banner p {
+  font-size: 16px;
+  max-width: 100%;
+}
+
+.banner .tagline{
+  margin-top:20%;
+}
+.txt-rotate {
+  min-width: 14ch;
+}
+
+.footer-social-icons {
+  justify-content: flex-end;
+}
+
+.footer-social-icons a {
+  width: 45px;
+  height: 45px;
+  font-size: 21px;
+}
+
+.footer-brand-text {
+  font-size: 1.25rem;
+}
+
+.social-icons {
+  justify-content: flex-start;
+}
+
+/* === 🌑 МОБИЛЬНАЯ ШТОРКА МЕНЮ === */
+.navbar-collapse {
+  background-color: rgba(25, 10, 35, 0.98);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-bottom: 150px;
+  z-index: 9998;
+  padding-top: 150px;
+
+}
+
+/* Лёгкое размытие */
+.navbar-collapse.show {
+  backdrop-filter: blur(6px);
+}
+
+/* Ссылки */
+.navbar-nav .nav-link {
+  color: #fff !important;
+  font-size: 20px;
+  text-align: center;
+  padding: 15px 0;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #f09eff !important;
+}
+
+/* Иконка бургера */
+.navbar-toggler {
+  position: fixed;       
+  top: 20px;
+  right: 20px;           
+  border: none;
+  z-index: 10001;        
+}
+
+.navbar-toggler-icon {
+  filter: brightness(0) invert(1);
+}
+
+/* === Подменю === */
+.custom-dropdown .dropdown-menu {
+  position: static !important;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 10px 0;
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 10px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.custom-dropdown .dropdown-item {
+  color: #fff !important;
+  font-size: 0.9rem;
+  padding: 7px 0;
+  transition: all 0.3s ease;
+}
+
+
+/* Анимация */
+.dropdown-menu.show {
+  animation: dropdownFade 0.3s ease;
+}
+
+@keyframes dropdownFade {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.custom-toggler {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  border: none;
+  z-index: 10001;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 58px;
+  height: 30px;
+  padding: 0;
+}
+
+.custom-toggler .toggler-icon {
+  width: 100%;
+  height: 4px;
+  background: #fff;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* ===  Бургер как крестик === */
+.custom-toggler.open .toggler-icon:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.custom-toggler.open .toggler-icon:nth-child(2) {
+  opacity: 0;
+}
+.custom-toggler.open .toggler-icon:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* === Крепление бургера при открытии === */
+.navbar {
+  transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: rgba(25, 10, 35, 0.95);
+  backdrop-filter: blur(8px);
+}
+
+/* Исчезновение */
+.navbar-collapse.collapse:not(.show) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* === 🌟 ЛОГОТИП В ШТОРКЕ === */
+  .navbar-brand {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 10000;
+  }
+
+
+.navbar-brand img {
+  width: 42px;
+  height: 42px;
+}
+
+.brand-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.brand-white {
+  color: #fff;
+}
+
+.brand-accent {
+  color: #AA367C; 
+}
+}
+
+/* 📱 Телефоны */
+@media (max-width: 576px) {
+  .banner {
+    padding: 80px 0 30px 0;
+  }
+
+  .banner .tagline{
+  margin-top: 20%;
+  }
+
+  .banner h1 {
+    margin-top: 40px;
+    font-size: 28px;
+  }
+
+  .banner p {
+    font-size: 15px;
+  }
+
+  .banner-btn {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .txt-rotate {
+    min-width: auto;
+  }
+  .footer-social-icons {
+    justify-content: center; 
+  }
+   .social-icons {
+    justify-content: center; 
+    flex-wrap: wrap; 
+    gap: 12px;
+  }
+
+  .social-link {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
   }
 }
