@@ -1,70 +1,115 @@
-# Getting Started with Create React App
+# <img width="50" height="50" alt="logo-light" src="https://github.com/user-attachments/assets/d843afb6-b53c-4968-bc7f-c7f3aec5de17" /> Personal Portfolio — Filatova Elena
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+A modern, lightweight **React portfolio website**, built with a focus on clean design, soft animations, and smooth user experience.  
+It showcases personal skills, projects, certificates, and a contact form — all crafted with care and attention to detail.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🌐 Project Preview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+> 🖼️ *Add a screenshot of your homepage here*  
+> Example:  
+> ![Portfolio Preview](./src/assets/img/preview.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🚀 Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Category | Technologies |
+|-----------|---------------|
+| **Framework** | React 18+ |
+| **UI & Layout** | React Bootstrap 5 |
+| **Animations** | Animate.css + Custom CSS Keyframes |
+| **Icons** | React Icons (Telegram, Instagram, Email) |
+| **Form Handling** | Formspree + SweetAlert2 |
+| **Background** | Custom `BubblesCSSBackground` with parallax effect |
+| **Styling** | CSS Variables, Flexbox, and Grid |
+| **Deployment** | GitHub Pages / Netlify |
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📁 Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+src/
+├── assets/
+│   ├── img/                     # Images and logos
+│   └── fonts/                   # Custom fonts (@font-face)
+│
+├── components/
+│   ├── Footer.js                # Footer with logo and social links
+│   ├── BubblesCSSBackground.js  # Animated background with parallax
+│   ├── Banner.js                # Hero section (About Me)
+│   ├── Projects.js              # Projects gallery
+│   ├── Certificates.js          # Certificates and diplomas section
+│   ├── ContactForm.js           # SweetAlert contact form
+│   └── ... (additional sections)
+│
+├── App.js                       # Main app component
+├── App.css                      # Global styles, colors, and animations
+└── index.js                     # React entry point
+```
+## 👩‍💻 Author
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+With ❤️ **Filatova Elena**  
+🌐 Frontend Developer | UI Enthusiast  
+📧 [filatovae047@gmail.com](mailto:filatovae047@gmail.com)
 
-### `npm run eject`
+<br><br>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# 🌸 Персональное портфолио — Филатова Елена
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Современное и лёгкое **React-портфолио**, созданное с любовью к дизайну и чистому коду.  
+Проект сочетает **анимацию**, **адаптивную верстку**, и **интерактивные формы** с приятным пользовательским опытом.
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🌐 Превью проекта
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+> 🖼️ *Добавь сюда скриншот главной страницы*  
+> Например:  
+> ![Portfolio Preview](./src/assets/img/preview.png)
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🚀 Используемые технологии
 
-### Analyzing the Bundle Size
+| Категория | Технологии |
+|------------|-------------|
+| **Фреймворк** | React 18+ |
+| **UI и сетка** | React-Bootstrap 5 |
+| **Анимации** | Animate.css, кастомные CSS keyframes |
+| **Иконки** | React Icons (Telegram, Instagram, Mail) |
+| **Обратная связь** | Formspree + SweetAlert2 |
+| **Фон** | Кастомный компонент `BubblesCSSBackground` с эффектом параллакса |
+| **Стилизация** | Flexbox / Grid / CSS Variables |
+| **Деплой** | GitHub Pages или Netlify |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 📁 Структура проекта
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+src/
+├── assets/
+│   ├── img/                     # Изображения и логотипы
+│   └── fonts/                   # Подключённые шрифты (@font-face)
+│
+├── components/
+│   ├── Footer.js                # Футер с логотипом и ссылками на соцсети
+│   ├── BubblesCSSBackground.js  # Анимированный фон с эффектом параллакса
+│   ├── Banner.js                # Главный баннер (о себе)
+│   ├── Projects.js              # Галерея проектов
+│   ├── Certificates.js          # Раздел с сертификатами и дипломами
+│   ├── ContactForm.js           # Контактная форма с SweetAlert уведомлением
+│   └── ... (дополнительные секции)
+│
+├── App.js                       # Главный компонент приложения
+├── App.css                      # Глобальные стили, цвета и анимации
+└── index.js                     # Точка входа React
+```
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
