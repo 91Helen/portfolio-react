@@ -8,9 +8,10 @@ It showcases personal skills, projects, certificates, and a contact form — all
 
 ## 🌐 Project Preview
 
-<img src="https://github.com/91Helen/portfolio-react/blob/main/portfolio.png?raw=true" alt="Portfolio Preview" width="500">
+<img src="https://github.com/91Helen/portfolio-react/blob/main/portfolio.png?raw=true" alt="Portfolio Preview" width="500">   
 
----
+[![View on Netlify](https://img.shields.io/badge/View%20on-Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://react-portfolio-elena.netlify.app/)
+
 
 ## 🚀 Tech Stack
 
@@ -52,7 +53,8 @@ src/
 
 With ❤️ **Filatova Elena**  
 🌐 Frontend Developer | UI Enthusiast  
-📧 [filatovae047@gmail.com](mailto:filatovae047@gmail.com)
+📧 [filatovae047@gmail.com](mailto:filatovae047@gmail.com) 
+
 
 <br><br>
 
@@ -67,6 +69,9 @@ With ❤️ **Filatova Elena**
 ## 🌐 Превью проекта
 
 <img src="https://github.com/91Helen/portfolio-react/blob/main/portfolio.png?raw=true" alt="Portfolio Preview" width="500">
+
+  [![View on Netlify](https://img.shields.io/badge/Просмотреть%20на-Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://react-portfolio-elena.netlify.app/)
+
 
 ---
 
