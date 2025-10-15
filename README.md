@@ -1,7 +1,7 @@
 # <img width="50" height="50" alt="logo-light" src="https://github.com/user-attachments/assets/d843afb6-b53c-4968-bc7f-c7f3aec5de17" /> Personal Portfolio — Filatova Elena
 
 
-A modern, lightweight **React portfolio website**, built with a focus on clean design, soft animations, and smooth user experience.  
+A modern, lightweight **React portfolio website**, built with a focus on clean design, soft animations, and smooth user interface.  
 It showcases personal skills, projects, certificates, and a contact form — all crafted with care and attention to detail.
 
 ---
@@ -57,11 +57,10 @@ With ❤️ **Filatova Elena**
 <br><br>
 
 
-
-# 🌸 Персональное портфолио — Филатова Елена
+ # <img width="50" height="50" alt="logo-light" src="https://github.com/user-attachments/assets/d843afb6-b53c-4968-bc7f-c7f3aec5de17" /> Персональное портфолио — Филатова Елена
 
 Современное и лёгкое **React-портфолио**, созданное с любовью к дизайну и чистому коду.  
-Проект сочетает **анимацию**, **адаптивную верстку**, и **интерактивные формы** с приятным пользовательским опытом.
+Проект сочетает **анимацию**, **адаптивную верстку**, и **интерактивные формы** с приятным пользовательским интерфейсом.
 
 ---
 
