@@ -8,9 +8,7 @@ It showcases personal skills, projects, certificates, and a contact form — all
 
 ## 🌐 Project Preview
 
-> 🖼️ *Add a screenshot of your homepage here*  
-> Example:  
-> ![Portfolio Preview](./src/assets/img/preview.png)
+<img src="https://github.com/91Helen/portfolio-react/blob/main/portfolio.png?raw=true" alt="Portfolio Preview" width="500">
 
 ---
 
@@ -69,9 +67,7 @@ With ❤️ **Filatova Elena**
 
 ## 🌐 Превью проекта
 
-> 🖼️ *Добавь сюда скриншот главной страницы*  
-> Например:  
-> ![Portfolio Preview](./src/assets/img/preview.png)
+<img src="https://github.com/91Helen/portfolio-react/blob/main/portfolio.png?raw=true" alt="Portfolio Preview" width="500">
 
 ---
 
