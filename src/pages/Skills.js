@@ -1,43 +1,15 @@
 import React, { useState } from "react";
-import physics from "../assets/img/physics.svg";
-import github from "../assets/img/github.svg";
-import api from "../assets/img/api.svg";
-import ui from "../assets/img/ui.svg";
-import figma from "../assets/img/figma.svg";
-import html from "../assets/img/html.svg";
-import css from "../assets/img/css.svg";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import colorSharp from "../assets/img/color-sharp.png";
 import TrackVisibility from "react-on-screen";
+import colorSharp from "../assets/img/color-sharp.png";
 
 
-import certificate1 from "../assets/certificates/certificate1.png";
-import certificate2 from "../assets/certificates/certificate2.png";
-import certificate3 from "../assets/certificates/certificate3.png";
-import certificate4 from "../assets/certificates/certificate4.png";
+import { skillsData, certificates } from "../data";
 
 export const Skills = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
-
-  const skillsData = [
-    { img: physics, title: "React Js" },
-    { img: github, title: "Git/GitHub" },
-    { img: api, title: "API/Fetch/Axios" },
-    { img: physics, title: "React Hooks" },
-    { img: ui, title: "UI" },
-    { img: figma, title: "FIGMA" },
-    { img: html, title: "HTML" },
-    { img: css, title: "CSS" },
-  ];
-
-  const certificates = [
-    { img: certificate1, title: "Certificate 1" },
-    { img: certificate2, title: "Certificate 2" },
-    { img: certificate3, title: "Certificate 3" },
-     { img: certificate4, title: "Certificate 4" },
-  ];
 
   const openModal = (index) => {
     setSelectedIndex(index);
@@ -63,7 +35,6 @@ export const Skills = () => {
 
   return (
     <section className="skill" id="skills">
-      {/* Скрывается весь остальной контент, когда открыто модальное окно */}
       <div className={modalOpen ? "site-hidden" : ""}>
         <div className="container">
           <div className="row">
@@ -78,10 +49,14 @@ export const Skills = () => {
                       accessible, and performant web applications using modern technologies. I'm passionate about
                       creating elegant solutions to complex problems and constantly learning new techniques.
                     </p>
-                    <Carousel responsive={responsive} infinite={true} className="skill-slider">
-                      {skillsData.map((skill, index) => (
-                        <div className="item" key={index}>
-                          <img src={skill.img} alt={skill.title} className={skill.title === "React Js" ? "physics" : ""} />
+                    <Carousel responsive={responsive} infinite className="skill-slider">
+                      {skillsData.map((skill, idx) => (
+                        <div className="item" key={`${skill.title}-${idx}`}>
+                          <img
+                            src={skill.img}
+                            alt={skill.title}
+                            className={skill.title === "React Js" ? "physics" : ""}
+                          />
                           <h5>{skill.title}</h5>
                         </div>
                       ))}
@@ -89,14 +64,13 @@ export const Skills = () => {
 
                     <h3 className="mt-2">My Certificates</h3>
                     <div className="certificates-grid">
-                      {certificates.map((cert, index) => (
+                      {certificates.map((cert, idx) => (
                         <div
                           className="certificate-card"
-                          key={index}
-                          onClick={() => openModal(index)}
+                          key={`${cert.title}-${idx}`}
+                          onClick={() => openModal(idx)}
                         >
                           <img src={cert.img} alt={cert.title} />
-                         
                         </div>
                       ))}
                     </div>
@@ -106,10 +80,9 @@ export const Skills = () => {
             </div>
           </div>
         </div>
-        <img className="background-image-left" src={colorSharp} alt="Image" />
+        <img className="background-image-left" src={colorSharp} alt="" />
       </div>
 
-      {/* Модальное окно */}
       {modalOpen && (
         <div className="certificate-modal">
           <button className="modal-close" onClick={closeModal}>×</button>

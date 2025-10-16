@@ -10,52 +10,47 @@ export const Banner = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(40); // typing speed
-  const [index, setIndex] = useState(1);
 
-  const toRotate = ["Frontend Developer."];
+  const toRotate = ["Frontend Developer"];
   const period = 2000; // pause after full word
 
   useEffect(() => {
-    let ticker = setInterval(() => {
-      tick();
-    }, delta);
+    const tick = () => {
+      const i = loopNum % toRotate.length;
+      const fullText = toRotate[i];
+      const updatedText = isDeleting
+        ? fullText.substring(0, text.length - 1)
+        : fullText.substring(0, text.length + 1);
 
-    return () => { clearInterval(ticker) };
-  }, [text]);
+      setText(updatedText);
 
-  const tick = () => {
-    let i = loopNum % toRotate.length;
-    let fullText = toRotate[i];
-    let updatedText = isDeleting
-      ? fullText.substring(0, text.length - 1)
-      : fullText.substring(0, text.length + 1);
+      if (isDeleting) {
+        setDelta(80);
+      } else {
+        setDelta(40);
+      }
 
-    setText(updatedText);
+      if (!isDeleting && updatedText === fullText) {
+        setIsDeleting(true);
+        setDelta(period);
+      } else if (isDeleting && updatedText === '') {
+        setIsDeleting(false);
+        setLoopNum(loopNum + 1);
+        setDelta(100);
+      }
+    };
 
-    if (isDeleting) {
-      setDelta(80); // deleting speed
-    } else {
-      setDelta(40); // typing speed
-    }
+    const ticker = setInterval(tick, delta);
+    return () => clearInterval(ticker);
 
-    if (!isDeleting && updatedText === fullText) {
-      setIsDeleting(true);
-      setIndex(prevIndex => prevIndex - 1);
-      setDelta(period);
-    } else if (isDeleting && updatedText === '') {
-      setIsDeleting(false);
-      setLoopNum(loopNum + 1);
-      setIndex(1);
-      setDelta(100);
-    } else {
-      setIndex(prevIndex => prevIndex + 1);
-    }
-  };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [text, delta, isDeleting, loopNum]); 
+  // В useEffect добавлены все зависимости. Если нужно игнорировать предупреждение, можно использовать eslint-disable-next-line
 
   return (
     <section className="banner" id="home">
       <Container>
-        <Row className="aligh-items-center">
+        <Row className="align-items-center">
           <Col xs={12} md={6} xl={7}>
             <TrackVisibility>
               {({ isVisible }) =>
@@ -64,7 +59,7 @@ export const Banner = () => {
                   <h1>
                     {`Hello, I'm Elena, and I'm a`}
                     <br />
-                    <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Frontend Developer" ]'>
+                    <span className="txt-rotate">
                       <span className="wrap">{text}</span>
                     </span>
                   </h1>
@@ -74,28 +69,28 @@ export const Banner = () => {
                     I’m eager to contribute my skills to a professional team and grow as a developer
                     through new challenges and exciting projects.
                   </p>
-                <a 
-  href="/Filatova Elena's resume.pdf" 
-  download 
-  className="cv-btn"
->
-  Download CV 
-</a>
-
+                  <a 
+                    href="/Filatova Elena's resume.pdf" 
+                    download 
+                    className="cv-btn"
+                  >
+                    Download CV 
+                  </a>
 
                   {/* Соцсети под кнопкой */}
                   <div className="social-icons mt-3 d-flex gap-3">
-  <a href="https://t.me/elenafeela" target="_blank" rel="noreferrer" className="social-link">
-    <FaTelegramPlane size={20} />
-  </a>
-  <a href="https://www.instagram.com/elena_feela_/" target="_blank" rel="noreferrer" className="social-link">
-    <FaInstagram size={20} />
-  </a>
-  <a href="https://mailto:filatovae047@gmail.com" className="social-link">
-    <FaEnvelope size={20} />
-  </a>
-</div>
-                </div>}
+                    <a href="https://t.me/elenafeela" target="_blank" rel="noreferrer" className="social-link">
+                      <FaTelegramPlane size={20} />
+                    </a>
+                    <a href="https://www.instagram.com/elena_feela_/" target="_blank" rel="noreferrer" className="social-link">
+                      <FaInstagram size={20} />
+                    </a>
+                    <a href="mailto:filatovae047@gmail.com" className="social-link">
+                      <FaEnvelope size={20} />
+                    </a>
+                  </div>
+                </div>
+              }
             </TrackVisibility>
           </Col>
 
@@ -103,8 +98,9 @@ export const Banner = () => {
             <TrackVisibility>
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
-                  <img src={headerImg} alt="Header Img" className="avatar-img" />
-                </div>}
+                  <img src={headerImg} alt="Portrait of Elena" className="avatar-img" />
+                </div>
+              }
             </TrackVisibility>
           </Col>
         </Row>
