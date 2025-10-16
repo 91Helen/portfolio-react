@@ -10,7 +10,7 @@ It showcases personal skills, projects, certificates, and a contact form — all
 
 <img src="https://github.com/91Helen/portfolio-react/blob/main/portfolio.png?raw=true" alt="Portfolio Preview" width="500">   
 
-[![View on Netlify](https://img.shields.io/badge/View%20on-Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://react-portfolio-elena.netlify.app/)
+[![View on Netlify](https://img.shields.io/badge/View%20on-Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://my-react-portfolio-elena.netlify.app/)
 
 
 ## 🚀 Tech Stack
@@ -70,7 +70,7 @@ With ❤️ **Filatova Elena**
 
 <img src="https://github.com/91Helen/portfolio-react/blob/main/portfolio.png?raw=true" alt="Portfolio Preview" width="500">
 
-  [![View on Netlify](https://img.shields.io/badge/Просмотреть%20на-Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://react-portfolio-elena.netlify.app/)
+  [![View on Netlify](https://img.shields.io/badge/Просмотреть%20на-Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://my-react-portfolio-elena.netlify.app/)
 
 
 ---
