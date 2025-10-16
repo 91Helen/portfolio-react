@@ -1,33 +1,51 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import TrackVisibility from "react-on-screen";
+import { gsap } from "gsap";
 import colorSharp from "../assets/img/color-sharp.png";
-import { projects } from "../data"; // 👈 импортируем массив
+import { projects } from "../data";
 
 export const ProjectsSection = () => {
-  const [visibleCount, setVisibleCount] = useState(3);
+  const [visibleProjects, setVisibleProjects] = useState(projects.slice(0, 3));
+  const cardsRef = useRef([]);
 
   const handleSeeMore = () => {
-    setVisibleCount((prev) => (prev === 3 ? projects.length : 3));
+    if (visibleProjects.length === 3) {
+      const newProjects = projects.slice(3);
+      setVisibleProjects((prev) => [...prev, ...newProjects]);
+    } else {
+      setVisibleProjects(projects.slice(0, 3));
+    }
   };
+
+  useEffect(() => {
+    let startIndex = 0;
+    if (visibleProjects.length > 3) {
+      startIndex = 3; 
+    }
+    const cardsToAnimate = cardsRef.current.slice(startIndex, visibleProjects.length);
+
+    gsap.fromTo(
+      cardsToAnimate,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: "power2.out" }
+    );
+  }, [visibleProjects]);
 
   return (
     <section className="projects" id="projects">
       <TrackVisibility>
         {({ isVisible }) => (
-          <div
-            className={`projects-bx ${
-              isVisible ? "animate__animated animate__fadeIn" : ""
-            }`}
-          >
+          <div className={`projects-bx ${isVisible ? "animate__animated animate__fadeIn" : ""}`}>
             <h2>My Projects</h2>
-            <p>
-              Here are some of the projects I’ve built using React, APIs and
-              modern front-end tools.
-            </p>
+            <p>Here are some of the projects I’ve built using React, APIs and modern front-end tools.</p>
 
             <div className="row">
-              {projects.slice(0, visibleCount).map((project, index) => (
-                <div className="col-md-4 mb-4" key={index}>
+              {visibleProjects.map((project, index) => (
+                <div
+                  className="col-md-4 mb-4"
+                  key={project.title}
+                  ref={(el) => (cardsRef.current[index] = el)}
+                >
                   <div className="project-card">
                     <img src={project.imgUrl} alt={project.title} />
                     <div className="content">
@@ -39,12 +57,8 @@ export const ProjectsSection = () => {
                         ))}
                       </div>
                       <div className="project-links">
-                        <a href={project.github} target="_blank" rel="noreferrer">
-                          GitHub
-                        </a>
-                        <a href={project.netlify} target="_blank" rel="noreferrer">
-                          Netlify
-                        </a>
+                        <a href={project.github} target="_blank" rel="noreferrer">GitHub</a>
+                        <a href={project.netlify} target="_blank" rel="noreferrer">Netlify</a>
                       </div>
                     </div>
                   </div>
@@ -53,7 +67,7 @@ export const ProjectsSection = () => {
 
               <div className="col-12 mt-4 text-center">
                 <button onClick={handleSeeMore} className="cosmic-button">
-                  {visibleCount === 3 ? "See More Projects" : "See Less"}
+                  {visibleProjects.length === 3 ? "See More Projects" : "See Less"}
                 </button>
               </div>
             </div>

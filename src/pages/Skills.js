@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import TrackVisibility from "react-on-screen";
+import { gsap } from "gsap";
 import colorSharp from "../assets/img/color-sharp.png";
-
 
 import { skillsData, certificates } from "../data";
 
 export const Skills = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
+  const skillRef = useRef(null);
 
   const openModal = (index) => {
     setSelectedIndex(index);
@@ -33,9 +34,31 @@ export const Skills = () => {
     mobile: { breakpoint: { max: 464, min: 0 }, items: 1 },
   };
 
+  // 🔹 GSAP-анимация для Skills и Certificates
+  useEffect(() => {
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    tl.fromTo(
+      skillRef.current,
+      { opacity: 0, y: 40 },
+      { opacity: 1, y: 0, duration: 0.8 }
+    );
+    tl.fromTo(
+      ".skill-slider .item",
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, stagger: 0.2, duration: 0.5 },
+      "-=0.5"
+    );
+    tl.fromTo(
+      ".certificates-grid .certificate-card",
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, stagger: 0.2, duration: 0.5 },
+      "-=0.5"
+    );
+  }, []);
+
   return (
     <section className="skill" id="skills">
-      <div className={modalOpen ? "site-hidden" : ""}>
+      <div className={modalOpen ? "site-hidden" : ""} ref={skillRef}>
         <div className="container">
           <div className="row">
             <div className="col-12">

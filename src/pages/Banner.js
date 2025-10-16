@@ -45,7 +45,7 @@ export const Banner = () => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [text, delta, isDeleting, loopNum]); 
-  // В useEffect добавлены все зависимости. Если нужно игнорировать предупреждение, можно использовать eslint-disable-next-line
+  
 
   return (
     <section className="banner" id="home">
