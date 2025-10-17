@@ -19,7 +19,7 @@ It showcases personal skills, projects, certificates, and a contact form — all
 |-----------|---------------|
 | **Framework** | React 18+ |
 | **UI & Layout** | React Bootstrap 5 |
-| **Animations** | Animate.css + Custom CSS Keyframes |
+| **Animations** | Animate.css + Custom CSS Keyframes + GSAP |
 | **Icons** | React Icons (Telegram, Instagram, Email) |
 | **Form Handling** | Formspree + SweetAlert2 |
 | **Background** | Custom `BubblesCSSBackground` with parallax effect |
@@ -81,7 +81,7 @@ With ❤️ **Filatova Elena**
 |------------|-------------|
 | **Фреймворк** | React 18+ |
 | **UI и сетка** | React-Bootstrap 5 |
-| **Анимации** | Animate.css, кастомные CSS keyframes |
+| **Анимации** | Animate.css, кастомные CSS keyframes + GSAP |
 | **Иконки** | React Icons (Telegram, Instagram, Mail) |
 | **Обратная связь** | Formspree + SweetAlert2 |
 | **Фон** | Кастомный компонент `BubblesCSSBackground` с эффектом параллакса |
