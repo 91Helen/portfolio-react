@@ -1417,7 +1417,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     height: 250px;
   }
   .bubbles-bg {
-    mask-image: linear-gradient(to top, transparent 0%, black 60%);
-    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 60%);
+    mask-image: linear-gradient(to top, transparent 0%, black 40%);
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 40%);
   }
 }
