@@ -1327,7 +1327,8 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     left: 20px;
     z-index: 10000;
   }
-	
+
+
 .navbar-brand img {
   width: 42px;
   height: 42px;
@@ -1346,6 +1347,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .brand-accent {
   color: #AA367C; 
 }
+
 }
 
 /* 📱 Телефоны */
@@ -1359,6 +1361,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   }
 
   .banner h1 {
+    margin-top: 10px;
     font-size: 28px;
   }
 
@@ -1416,11 +1419,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .project-card img {
     height: 250px;
   }
-  .bubbles-bg {
-    mask-image: linear-gradient(to top, transparent 0%, black 80%);
-    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 80%);
-  }
-	.bubbles-bg {
+.bubbles-bg {
     bottom: 0;
     top: auto;
     height: 30%; /* пузырьки только внизу экрана */
