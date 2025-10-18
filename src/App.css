@@ -1420,4 +1420,14 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     mask-image: linear-gradient(to top, transparent 0%, black 80%);
     -webkit-mask-image: linear-gradient(to top, transparent 0%, black 80%);
   }
+	.bubbles-bg {
+    bottom: 0;
+    top: auto;
+    height: 30%; /* пузырьки только внизу экрана */
+  }
+
+  .bubbles-bg {
+    mask-image: linear-gradient(to top, transparent 0%, black 90%);
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 90%);
+  }
 }
