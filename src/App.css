@@ -1359,7 +1359,6 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   }
 
   .banner h1 {
-   
     font-size: 28px;
   }
 
@@ -1416,5 +1415,16 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 .project-card img {
     height: 250px;
+  }
+	.bubbles-bg {
+    top: auto;
+    bottom: 0;
+    height: 60%; 
+    transform: scale(0.7);
+  }
+
+  .bubbles-bg span {
+    animation-duration: calc(var(--duration) * 0.6); 
+    opacity: 0.7; 
   }
 }
